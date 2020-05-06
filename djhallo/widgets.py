@@ -13,10 +13,11 @@ class HalloInput(forms.Textarea):
     def render(self, name, value, attrs=None):
         value = value or ''
         final_attrs = self.build_attrs(attrs, name=name)
-        html = [u'<div class="hallo-block"><article class="edit"></article><textarea%s>%s</textarea></div>' % \
-                (flatatt(final_attrs),
-                 force_unicode(escape(value)))]
-        return mark_safe(u'\n'.join(html))
+        html = [
+            '<div class="hallo-block"><article class="edit"></article><textarea%s>%s</textarea></div>' % \
+            (flatatt(final_attrs), force_unicode(escape(value)))
+        ]
+        return mark_safe('\n'.join(html))
 
     @property
     def media(self):
