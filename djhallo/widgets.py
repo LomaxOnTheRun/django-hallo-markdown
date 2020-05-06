@@ -4,7 +4,7 @@ from django import forms
 from django.conf import settings
 from django.forms.utils import flatatt
 from django.utils.html import escape
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 
 
@@ -15,7 +15,7 @@ class HalloInput(forms.Textarea):
         final_attrs = self.build_attrs(attrs, name=name)
         html = [
             '<div class="hallo-block"><article class="edit"></article><textarea%s>%s</textarea></div>' % \
-            (flatatt(final_attrs), force_unicode(escape(value)))
+            (flatatt(final_attrs), force_text(escape(value)))
         ]
         return mark_safe('\n'.join(html))
 
