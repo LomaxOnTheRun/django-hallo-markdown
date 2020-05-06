@@ -14,6 +14,7 @@ except ImportError:
     from setuptools import setup, find_packages, Command
 
 from distutils.util import convert_path
+from __future__ import print_function
 
 
 is_py3k  = sys.version_info >= (3, 0)
